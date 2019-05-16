@@ -5,7 +5,7 @@
 function listFunctions() {
   var i=1;
   console.log(">>> Loading all Functions into buffer...");
-  var availableFunctions = ["changeTitle(windowTitle)","cutOutChar(str_to_remove,str)","removeCharFromStart(element,amount)","removeCharFromEnd(element,amount)","sleep(ms)","getRandomInt(min,max)","getRandomFloat(min,max)","getRandomBool","checkIfInt(value)","checkIfFloat(value)","checkIfString(value)","checkIfObject(value)","doStyleTransform(objectID,argument,value)","doTextTransform(objectID,value)","getTime()","getDay()","getDate()","setCookie(name,value)","getCookieByName(name)","isMailValid(mail)","isInArray(needle,haystack)","isInArrayCount(needle,haystack)","insertIntoArray(arr,pos,value)","getFromArray(arr,pos)","getWebcamAccess()"];
+  var availableFunctions = ["changeTitle(windowTitle)","changeFavicon(src)","cutOutChar(str_to_remove,str)","removeCharFromStart(element,amount)","removeCharFromEnd(element,amount)","sleep(ms)","getRandomInt(min,max)","getRandomFloat(min,max)","getRandomBool","checkIfInt(value)","checkIfFloat(value)","checkIfString(value)","checkIfObject(value)","doStyleTransform(objectID,argument,value)","doTextTransform(objectID,value)","getTime()","getDay()","getDate()","setCookie(name,value)","getCookieByName(name)","isMailValid(mail)","isInArray(needle,haystack)","isInArrayCount(needle,haystack)","insertIntoArray(arr,pos,value)","getFromArray(arr,pos)","getWebcamAccess()"];
   console.log(">>> These are all functions you can youse:");
   availableFunctions.forEach(function(entry) {
     console.log(">>> "+i+" ) "+entry);
@@ -14,6 +14,17 @@ function listFunctions() {
 }
 function changeTitle(windowtitle) {
   document.title = windowtitle;
+}
+function changeFavicon(src) {
+ var link = document.createElement('link'),
+     oldLink = document.getElementById('dynamic-favicon');
+ link.id = 'dynamic-favicon';
+ link.rel = 'shortcut icon';
+ link.href = src;
+ if (oldLink) {
+  document.head.removeChild(oldLink);
+ }
+ document.head.appendChild(link);
 }
 
 // =====================================
